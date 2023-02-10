@@ -1,0 +1,43 @@
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.movie-card {
+    background-color: white;
+    border: 1px solid #0071c5;
+    border-radius: 10px;
+    width: 300px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-shadow: 2px 2px 5px #0071c5;
+}
+
+h1 {
+    color: #0071c5;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    text-align: justify;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+img {
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+}

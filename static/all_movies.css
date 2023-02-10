@@ -1,0 +1,38 @@
+body {
+    background-color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #0070c9;
+    margin-top: 50px;
+  }
+  
+  .movies {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .movies li {
+    width: 300px;
+    height: 400px;
+    background-color: #0070c9;
+    color: #fff;
+    margin: 20px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  .movies a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+  }

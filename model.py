@@ -1,10 +1,13 @@
-import os 
+
 from flask_sqlalchemy import SQLAlchemy
+
+import os
+
 
 db = SQLAlchemy()
 
-
 class User(db.Model):
+    """A user."""
 
     __tablename__ = "users"
 
@@ -12,10 +15,14 @@ class User(db.Model):
     email = db.Column(db.String, unique=True)
     password = db.Column(db.String)
 
+    # ratings = a list of Rating objects
+
     def __repr__(self):
         return f"<User user_id={self.user_id} email={self.email}>"
 
+
 class Movie(db.Model):
+    """A movie."""
 
     __tablename__ = "movies"
 
@@ -25,11 +32,13 @@ class Movie(db.Model):
     release_date = db.Column(db.DateTime)
     poster_path = db.Column(db.String)
 
+    # ratings = a list of Rating objects
+
     def __repr__(self):
         return f"<Movie movie_id={self.movie_id} title={self.title}>"
 
-
 class Rating(db.Model):
+    """A movie rating."""
 
     __tablename__ = "ratings"
 
@@ -45,8 +54,7 @@ class Rating(db.Model):
         return f"<Rating rating_id={self.rating_id} score={self.score}>"
 
 
-
-def connect_to_db(flask_app, db_uri= os.environ["POSTGRES_URI"], echo=False):
+def connect_to_db(flask_app, db_uri = os.environ["POSTGRES_URI"], echo=False):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = echo
     flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -59,7 +67,4 @@ def connect_to_db(flask_app, db_uri= os.environ["POSTGRES_URI"], echo=False):
 
 if __name__ == "__main__":
     from server import app
-
-
-
     connect_to_db(app)
