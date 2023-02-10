@@ -13,7 +13,6 @@ with server.app.app_context():
     model.connect_to_db(server.app)
     model.db.create_all()
 
-    # Load movie data from JSON file
     with open("data/movies.json") as f:
         movie_data = json.loads(f.read())
 

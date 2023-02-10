@@ -16,7 +16,6 @@ def homepage():
 
 @app.route("/movies")
 def all_movies():
-    """View all movies."""
 
     movies = crud.get_movies()
 
@@ -24,7 +23,6 @@ def all_movies():
 
 @app.route("/users")
 def all_users():
-    """View all users."""
 
     users = crud.get_users()
 
@@ -32,14 +30,12 @@ def all_users():
 
 @app.route("/movies/<movie_id>")
 def show_movie(movie_id):
-    """Show details on a particular movie."""
     movie = crud.get_movie_by_id(movie_id)
 
     return render_template("movie_details.html", movie=movie)
 
 @app.route("/users", methods=["POST"])
 def register_user():
-    """Create a new user."""
 
     email = request.form.get("email")
     password = request.form.get("password")
@@ -57,7 +53,6 @@ def register_user():
 
 @app.route("/login", methods=["POST"])
 def process_login():
-    """Process user login."""
 
     email = request.form.get("email")
     password = request.form.get("password")
@@ -66,7 +61,6 @@ def process_login():
     if not user or user.password != password:
         flash("The email or password you entered was incorrect.")
     else:
-        # Log in user by storing the user's email in session
         session["user_email"] = user.email
         flash(f"Welcome back, {user.email}!")
 
@@ -75,4 +69,4 @@ def process_login():
 
 if __name__ == "__main__":
     connect_to_db(app)
-    app.run(host="localhost",port = 3001, debug=True)
+    app.run(host="localhost",port = 5000, debug=True)
